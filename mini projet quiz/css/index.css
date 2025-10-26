@@ -1,0 +1,266 @@
+/* Start Global */
+:root {
+  --red: #E63946;
+  --yellow: #F9C852;
+  --blue: #495787;
+  --green: #43AA8B;
+  --purple: #9068BA;
+  --font-color: #19252E;
+
+  --shadow-red: 0 6px 16px rgba(230, 57, 70, 0.4);
+  --shadow-yellow: 0 6px 16px rgba(249, 200, 82, 0.4);
+  --shadow-blue: 0 6px 16px rgba(73, 87, 135, 0.4);
+  --shadow-green: 0 6px 16px rgba(67, 170, 139, 0.4);
+  --shadow-purple: 0 6px 16px rgba(144, 104, 186, 0.4);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  color: var(--font-color);
+
+  background-image: url("../img/wave.svg");
+  background-position-y: bottom;
+  background-size: cover;
+
+  min-height: 100vh;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--blue);
+  --bs-btn-border-color: var(--blue);
+  --bs-btn-hover-bg: #303a5b;
+  --bs-btn-hover-border-color: #303a5b;
+}
+
+#correctMsg,
+#wrongMsg {
+  position: absolute;
+  top: -110%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: .3s ease;
+}
+
+#correctMsg {
+  background-color: var(--green);
+}
+
+#wrongMsg {
+  background-color: var(--red);
+}
+/* End Global */
+
+/* Start Nav */
+nav .logo {
+  width: 250px;
+}
+/* End Nav */
+
+/* Start Main */
+main .welcome {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+main .category .inner {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: .3s ease;
+}
+
+main .category .general {
+  background: var(--purple);
+  box-shadow: var(--shadow-purple);
+}
+
+main .category .science {
+  background: var(--blue);
+  box-shadow: var(--shadow-blue);
+}
+
+main .category .history {
+  background: var(--red);
+  box-shadow: var(--shadow-red);
+}
+
+main .category .anime {
+  background: var(--yellow);
+  box-shadow: var(--shadow-yellow);
+}
+
+main .category .coding {
+  background: var(--green);
+  box-shadow: var(--shadow-green);
+}
+
+main .selected,
+main .category {
+  transition: .3s ease;
+}
+
+main .selected {
+  transform: scale(.96);
+}
+
+main .selected > * {
+  box-shadow: none !important;
+}
+
+main .category i {
+  font-size: 2rem;
+}
+
+main .category h5 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+
+/* End Main */
+
+/* Start Questions */
+.questions-number {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.checkbox {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+  margin-right: 15px;
+  transition: .3s ease;
+}
+
+.checkbox-selected {
+  background-color: var(--purple);
+  outline: 3px solid var(--purple);
+}
+
+p {
+  margin: 0;
+}
+
+.inner {
+  background-color: #F8F8FF;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.inner:hover {
+  box-shadow: 0 0px 15px rgba(144, 104, 186, 0.2);
+}
+
+.inner-box-shadow {
+  box-shadow: 0 0px 15px rgba(144, 104, 186, 0.2);
+}
+
+.correct-answer {
+  box-shadow: 0 0 15px rgba(67, 170, 139, 0.6) !important;
+}
+
+.correct-answer .checkbox {
+  outline-color: var(--green);
+}
+
+.correct-answer .checkbox-selected {
+  background-color: var(--green);
+  outline-color: var(--green);
+}
+
+.incorrect-answer {
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.2) !important;
+}
+
+.incorrect-answer .checkbox {
+  outline-color: var(--red);
+}
+
+.incorrect-answer .checkbox-selected {
+  background-color: var(--red);
+  outline-color: var(--red);
+}
+/* End Questions */
+
+/* Start Score */
+.score-box {
+  background-color: #F8F8FF;
+}
+
+.score-box .user-score-box {
+  font-weight: 600;
+  color: var(--purple);
+}
+/* End Score */
+main .category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+main .category i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+main .category:hover {
+  transform: scale(1.05);
+}
+
+main .selected {
+  transform: scale(0.96);
+  box-shadow: none !important;
+}
+/* ==================== Boutons catégories horizontaux ==================== */
+.categories-container {
+  display: flex;             /* active le flexbox */
+  flex-wrap: wrap;           /* permet de passer à la ligne si trop de boutons */
+  justify-content: center;   /* centre horizontalement */
+  gap: 20px;                 /* espace entre les boutons */
+  margin-bottom: 40px;
+}
+
+.categories-container button.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 130px;          /* largeur minimum pour un joli alignement */
+}
+
+.categories-container button.category:hover {
+  transform: scale(1.05);
+}
+
+.categories-container button.category.selected {
+  transform: scale(0.96);
+  box-shadow: none !important;
+}
+

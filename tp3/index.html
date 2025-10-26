@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Les Bonnes Pièces</title>
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="pieces.js"></script>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	</head>
+	<body>
+		
+	<div id="app">
+		
+		<header>
+			<img src="images/logo-les-bonnes-pieces.png" alt="LOGO">
+			<h1>Les Bonnes Pièces</h1>
+		</header>
+
+		<nav>
+			<input type="text" v-model="search"  placeholder="Rechercher un produit ...">
+		</nav>
+		
+		<main >
+			<!-- Menu de recherche -->
+
+			<section class="filtres">
+				<h3>Filtres</h3>
+				<hr>
+				<h4>Catégorie</h4>
+				<select v-model="categorie">
+					<option value="">catégorie</option>
+					<option value="Échappement">Échappement</option>
+					<option value="Électricité">Électricité</option>
+					<option value="Carrosserie">Carrosserie</option>
+				</select><br> <br>
+				<hr>
+				<div>
+					<h4>Disponibilité</h4>
+					<label><input type="radio" value="" v-model="disponible" /> Tous</label>
+					<label><input type="radio" value="true" v-model="disponible" /> Disponibles</label>
+					<label><input type="radio" value="false" v-model="disponible" /> Indisponibles</label>
+				</div><br><hr>
+
+				<h4>Filtrage de prix</h4>
+				<select v-model="pfilter">
+					<option value="">aléatoire</option>
+					<option value="asc">croissant</option>
+					<option value="desc">décroissant</option>
+				</select>
+				<br><br>
+				<hr>
+				<h4>Panier</h4>
+				<ul>
+					<li v-for="p in panier">
+						{{p.nom}}
+					</li>
+					<button v-if="panier.length !== 0"  @click="annulation" class="disponible">Annuler</button>
+				</ul>
+
+
+			</section>
+
+			<!-- Fiches produits -->
+			<section class="fiches">
+				<ul>
+					<li v-for="product in filteredProducts"  :key="product.id">
+						<!-- v-if="product.nom === 'search'" -->
+						<figure>
+							<img :src="product.image" :alt="product.nom">
+							<figcaption>
+								<strong>{{ product.nom }}</strong> <br>{{product.categorie}} <br> {{ product.prix }}€ <br>
+								<!-- <span>{{product.disponible ? 'disponible' : 'non disponible' }}</span> -->
+							</figcaption>
+							<button v-if="product.disponible" @click="acheter(product)" :disabled="panier.includes(product)" class="disponible">ajouter au panier</button>
+							<button v-else class="indisponible">produit indisponible</button>
+
+						</figure>
+					</li>
+				</ul>
+			</section>
+		</main>
+		
+	</div>
+
+		<script>
+			const { createApp } = Vue;
+			createApp({
+				data (){
+					return {
+						search : '',
+						categorie:'',
+						disponible:'',
+						pfilter:'',
+						panier : [],
+						products: [
+					{
+						"id": 1,
+						"nom": "Batterie 12V",
+						"prix": 120,
+						"categorie": "Électricité",
+						"image": "images/Batterie_12V.png",
+						"disponible": false
+					},
+					{
+						"id": 17,
+						"nom": "Rétroviseur extérieur",
+						"prix": 60,
+						"categorie": "Carrosserie",
+						"image": "images/Rétroviseur_extérieur.png",
+						"disponible": true
+					},
+					{
+						"id": 18,
+						"nom": "Échappement complet",
+						"prix": 250,
+						"categorie": "Échappement",
+						"image": "images/Échappement_complet.png",
+						"disponible": true
+					}
+				]
+					};
+				},
+				methods: {
+					acheter(produit) {
+						this.panier.push(produit);
+					},
+					annulation () {
+						this.panier = [];
+					}
+					
+				},
+				computed: {
+					// filteredProducts() {
+					// let filtered = this.products;
+					// // Si la barre est vide, afficher tous les produits
+					// if (!this.search.trim() && !this.categorie && !this.disponible && !this.pfilter) {
+					// 	return this.products;
+					// }
+
+					// // Filtrage insensible à la casse
+					// else if (this.search.trim()){
+					// 	const recherche = this.search.toLowerCase();
+					// 	return this.products.filter(product =>
+					// 		product.nom.toLowerCase().includes(recherche) 
+					// ) }
+
+					// else if (this.categorie){
+					// 	const categorie = this.categorie.toLowerCase();
+					// 	return this.products.filter(product =>
+					// 		product.categorie.toLowerCase().includes(categorie) )
+					// }
+
+
+					// else if (this.disponible){
+					// 	switch (this.disponible){
+					// 		case 'false':
+					// 			return this.products.filter(p => !p.disponible)
+					// 		case 'true':
+					// 			return this.products.filter(p => p.disponible)
+					// 		default :
+					// 			return this.products 
+					// 	}	
+					// }
+
+					// else if (this.pfilter){
+					// 	if (this.pfilter === 'asc') {
+					// 		return this.products.slice().sort((a, b) => a.prix - b.prix);
+					// 	} else if (this.pfilter === 'desc') {
+					// 		return this.products.slice().sort((a, b) => b.prix - a.prix);
+					// 	} else {
+					// 		return this.products;
+					// 	}
+						
+					// }
+
+
+					// }
+
+
+
+
+
+					filteredProducts() {
+					let filtered = this.products;
+					// Si la barre est vide, afficher tous les produits
+					if (!this.search.trim() && !this.categorie && !this.disponible && !this.pfilter) {
+						filtered = this.products;
+					}
+
+					// Filtrage insensible à la casse
+					if (this.search && this.search.trim()){
+						const recherche = this.search.toLowerCase();
+						filtered = filtered.filter(product => product.nom.toLowerCase().includes(recherche) 
+					); }
+
+					if (this.categorie){
+						const categorie = this.categorie.toLowerCase();
+						filtered = filtered.filter(product =>
+							product.categorie.toLowerCase().includes(categorie) );
+					}
+
+
+					if (this.disponible){
+						switch (this.disponible){
+							case 'false':
+								filtered = filtered.filter(p => !p.disponible);
+								break;
+							case 'true':
+								filtered = filtered.filter(p => p.disponible);
+								break;
+							default :
+								break ;
+						}	
+					}
+
+					if (this.pfilter){
+						if (this.pfilter === 'asc') {
+							filtered = filtered.slice().sort((a, b) => a.prix - b.prix);
+						} else if (this.pfilter === 'desc') {
+							filtered = filtered.slice().sort((a, b) => b.prix - a.prix);
+						} 						
+					}
+
+					return filtered ;
+
+
+					}
+
+					
+				}
+			}).mount("#app")
+		</script>
+	</body>
+</html>

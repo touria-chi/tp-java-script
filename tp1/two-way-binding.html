@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Manipulation de Vue - Exercice 3</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+<div id="monapp">
+  <h2>Exercice 3 : Champ sans espace</h2>
+  <input type="text"
+         v-model="texte"
+         @input="verifierEspace"
+         placeholder="Saisissez un mot sans espace">
+
+  <p v-show="messageVisible" style="color:red;">
+     Veuillez ne pas utiliser d’espace dans le texte.
+  </p>
+
+  <p>Texte saisi : {{ texte }}</p>
+</div>
+
+<script>
+const appli = {
+  data() {
+    return {
+      texte: '',
+      messageVisible: false
+    }
+  },
+  methods: {
+    verifierEspace() {
+      if (this.texte.includes(' ')) {
+        this.messageVisible = true;
+        this.texte = this.texte.replace(/\s+/g, '');
+      } else {
+        this.messageVisible = false;
+      }
+    }
+  }
+};
+
+Vue.createApp(appli).mount("#monapp");
+</script>
+
+</body>
+</html>
