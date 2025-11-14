@@ -1,0 +1,20 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Développeur Web",
+      "description": "Créer et maintenir des sites web",
+      "salary": 3000,
+      "experience": 2,
+      "date": "2025-11-13"
+    },
+    {
+      "id": "2",
+      "title": "Designer UI/UX",
+      "description": "Créer des interfaces utilisateur ergonomiques",
+      "salary": 3200,
+      "experience": 3,
+      "date": "2025-11-01"
+    }
+  ]
+}
