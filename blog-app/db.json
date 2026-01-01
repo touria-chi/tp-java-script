@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Apprendre le CSS moderne",
+      "body": "Dans ce post, nous explorons les nouvelles fonctionnalités CSS comme Flexbox, Grid, et les animations pour créer des interfaces modernes.",
+      "tags": ["Frontend", "CSS", "Design"]
+    },
+    {
+      "id": "2",
+      "title": "Node.js et Express pour débutants",
+      "body": "Découvrez comment créer un serveur Node.js simple avec Express, gérer les routes et connecter votre application à une base de données.",
+      "tags": ["Backend", "Node", "Express"]
+    },
+    {
+      "id": "3",
+      "title": "Vue.js : Composables et Composition API",
+      "body": "Ce post explique comment utiliser la Composition API et les composables dans Vue.js pour rendre vos composants plus modulaires et réutilisables.",
+      "tags": ["Vue", "Frontend", "Composition API"]
+    },
+    {
+      "id": "4",
+      "title": "Créer une API REST sécurisée",
+      "body": "Apprenez à sécuriser vos endpoints avec JWT, gérer l'authentification et autorisation, et structurer correctement votre API.",
+      "tags": ["Backend", "API", "Security"]
+    },
+    {
+      "id": "5",
+      "title": "Introduction à TypeScript",
+      "body": "Découvrez TypeScript, un sur-ensemble de JavaScript qui ajoute le typage statique pour rendre vos projets plus robustes.",
+      "tags": ["Frontend", "TypeScript", "JS"]
+    },
+    {
+      "id": "6",
+      "title": "Gestion des états avec Vuex",
+      "body": "Ce post présente Vuex pour gérer l'état global d'une application Vue.js, avec des exemples de mutations et actions.",
+      "tags": ["Vue", "Vuex", "State Management"]
+    },
+    {
+      "id": "7",
+      "title": "Introduction aux bases de données NoSQL",
+      "body": "Découvrez MongoDB et les bases de données NoSQL, leurs avantages par rapport aux bases SQL et comment les utiliser dans vos projets.",
+      "tags": ["Database", "MongoDB", "NoSQL"]
+    },
+    {
+      "id": "8",
+      "title": "Déploiement d'une application Vue.js",
+      "body": "Apprenez comment préparer votre application Vue.js pour la production et la déployer sur Netlify, Vercel ou Heroku.",
+      "tags": ["Frontend", "Deployment", "Vue"]
+    }
+  ]
+}
