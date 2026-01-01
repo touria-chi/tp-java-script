@@ -1,5 +1,30 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Blog App Vue.js
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Ce projet est une application de blog développée avec **Vue.js** et **JSON Server**.  
+Il permet de créer, modifier, supprimer et afficher des posts avec des tags.
+
+## Membres du projet
+
+- Fatima Bousmiti
+- Touria Chiguer
+- sara lamraidi
+- Siham bouzrmin
+
+
+## Fonctionnalités
+
+- Affichage des posts avec tags
+- Ajout de nouveaux posts
+- Modification et suppression de posts
+- Filtrage par tags
+- Responsive design
+
+## Installation
+
+```bash
+git clone <URL_DU_REPO>
+cd blog-app
+npm install
+npx json-server --watch db.json
+npm run dev
