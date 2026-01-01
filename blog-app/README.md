@@ -9,7 +9,7 @@ Il permet de créer, modifier, supprimer et afficher des posts avec des tags.
 - Fatima Bousmiti
 - Touria Chiguer
 - sara lamraidi
-- Siham bouzrmin
+- Siham bouzarmin
 
 
 ## Fonctionnalités
