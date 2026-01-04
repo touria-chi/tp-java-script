@@ -13,3 +13,10 @@
 - Répondre, éditer, supprimer des messages
 - Signaler un contenu inapproprié
 - Authentification sécurisée
+
+## Membres du projet
+
+- Fatima Bousmiti
+- Touria Chiguer
+- Sara lamraidi
+- Siham bouzarmin
